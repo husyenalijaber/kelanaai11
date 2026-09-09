@@ -18,7 +18,11 @@ app = FastAPI(title="KelanaAI", description="Smart Travel Planner API", version=
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://kelanaai11.vercel.app"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://kelanaai11.vercel.app",
+        "https://frontend-sigma-six-38.vercel.app",
+    ],  # ← ini yang hilang
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
