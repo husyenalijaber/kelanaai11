@@ -7,6 +7,13 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
 from db.database import get_db
 from db import models
+import bcrypt
+
+def hash_password(password: str) -> str:
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
 
 SECRET_KEY = os.getenv("SECRET_KEY", "kelanaai-secret-key-2026")
 ALGORITHM  = "HS256"
