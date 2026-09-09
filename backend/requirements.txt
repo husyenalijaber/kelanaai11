@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+boto3==1.43.56
+python-dotenv
+passlib[bcrypt]
+PyJWT
